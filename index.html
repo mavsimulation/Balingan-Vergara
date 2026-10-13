@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Snack Bar POS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark">CSB</span>
+      <div>
+        <h1>Campus Snack Bar POS</h1>
+        <p>Point-of-Sale System</p>
+      </div>
+    </div>
+    <div class="status">
+      <span class="status-dot"></span>
+      Cashier Online
+    </div>
+  </header>
+
+  <main class="layout">
+
+    <!-- LEFT SIDE: PRODUCT LIST (Step 1: Browse Products) -->
+    <section class="products-area">
+      <div class="section-head">
+        <h2>Menu</h2>
+        <span class="hint">Click a product to add it to the order</span>
+      </div>
+      <!-- Product cards are created by script.js (renderProducts) -->
+      <div id="productList" class="product-grid"></div>
+    </section>
+
+    <!-- RIGHT SIDE -->
+    <aside class="right-column">
+
+      <!-- ORDER SUMMARY (Steps 2-3: Add to Cart, Review Order) -->
+      <div class="panel">
+        <div class="section-head">
+          <h2>Current Order</h2>
+        </div>
+        <p id="cartMessage" class="message"></p>
+
+        <!-- Cart items are created by script.js (renderCart) -->
+        <div id="cartBody" class="cart-list"></div>
+
+        <p id="emptyCart" class="empty">No items yet. Add a product from the menu.</p>
+
+        <div class="total-box">
+          <span>TOTAL AMOUNT DUE</span>
+          <span id="totalAmount">₱0.00</span>
+        </div>
+      </div>
+
+      <!-- PAYMENT (Steps 4-6: Enter Payment, Validate, Confirm) -->
+      <div class="panel">
+        <h2>Payment</h2>
+        <label for="cashInput">Cash Received</label>
+        <div class="cash-field">
+          <span class="peso-sign">₱</span>
+          <input type="number" id="cashInput" min="0" step="0.01" placeholder="0.00">
+        </div>
+        <button id="payBtn" class="btn btn-primary btn-large">Pay Now</button>
+        <p id="paymentMessage" class="message"></p>
+
+        <div class="change-box">
+          <span>Change</span>
+          <span id="changeDisplay">₱0.00</span>
+        </div>
+      </div>
+
+      <!-- RECEIPT (Step 7: Receipt / New Transaction) - hidden until payment succeeds -->
+      <div id="receiptPanel" class="panel receipt hidden">
+        <div id="receiptContent"></div>
+        <button id="newTransactionBtn" class="btn btn-dark btn-large">New Transaction</button>
+      </div>
+
+    </aside>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
