@@ -162,6 +162,9 @@ function removeFromCart(productId) {
 // the total are always recomputed automatically.
 // =====================================================
 function renderCart() {
+  // The total may have changed, so any old payment error is no longer correct
+  clearMessage(paymentMessage);
+
   cartBody.innerHTML = "";
 
   cart.forEach(function (item) {
